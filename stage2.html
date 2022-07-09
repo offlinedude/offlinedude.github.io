@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>S2</title>
+
+        <!-- FONTS -->
+        <link rel="stylesheet" 
+            href="https://fonts.googleapis.com/css?family=Comfortaa"
+        >
+
+        <!-- STYLES -->
+        <style>
+            .topLeft {
+                position: absolute;
+                top: 10px;
+                left: 100px;
+            }
+
+            .botRight {
+                position:absolute;
+                bottom: 10px;
+                right: 100px;
+            }
+        </style>
+    </head>
+
+    
+    <body style="background-color:black; font-family:Comfortaa; font-size:30px;">
+        <audio id="player"> <source src="Mice On Venus - C418.mp3" type="audio/mpeg"></audio>
+        <!-- FUNCTIONS -->
+        <script> 
+            function changeTextColor(obj) {
+                obj.style.color = '#' + Math.floor(Math.random()*16777215).toString(16);     
+            }
+        </script>
+
+        <div class="topLeft" id="list" style="color:white;">
+            <p onmouseover="this.innerHTML='You come from there.'" onmouseout="this.innerHTML='INSTAGRAM profile <img src=\'instagram_icon.png\'width=\'30\'height=\'30\'>'">
+                INSTAGRAM profile <img src="instagram_icon.png" width="30" height="30"></p>
+            
+            <p onmouseover="changeTextColor(this)">This site is so quirky owo.</p> 
+            <p onmouseover="changeTextColor(this)">I spent so much time on this color changing thing, good thing I will never use it again.</p>
+            
+            <p style="display: inline-block;" id='pbut' onclick="document.getElementById('player').play()" onmouseover="changeTextColor(this)">Play</p>
+            <p style="display: inline-block;" onclick="document.getElementById('player').pause()" onmouseover="changeTextColor(this)">&emsp;Pause</p>  
+            
+            <p onmouseover="changeTextColor(this)">How did you even get here? Did you really watch the entirety of that video?.</p>
+            <p onmouseover="changeTextColor(this)">For such bravery I shall grant you my wisdom, young traveler! 
+                <br>That is: "A foolish man shares his problems. A wise man shares his memes."</p>  
+            <p onmouseover="changeTextColor(this)">If you do find this, send me a message that tells me to stop making stuff like this as it doesnt have any real use.</p>
+        </div>
+
+        <div class="botRight">
+            <p style="color:black" onmouseover="this.style.color='white'" onmouseleave="this.style.color='black'" onclick="location.replace('stage3.html')">WISDOM</p>
+        </div>
+    </body>
+</html>

@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 
 <html>
+    <head>
+        <title>
+            HOME
+        </title>
+    </head>
+
     <style>
         .center {
             position: absolute;
@@ -13,12 +19,14 @@
         
     </style>
 
-    <body>
-        <div class="center">
-            <p style="text-align: center; font-size: 200%; color:red;"> you wont play the video, you wont</p>
-            <video width="1024" height="500" preload controls id="vid">
-                <source src="coolvid.mp4" type="video/mp4">
+    <body style="background-color:black;">
+        <div class="center" style="text-align: center; font-size: 200%; color:white;" id="S1">
+            <p style="display:inline-block">Video presentation of myself,&nbsp;</p><p style="display:inline-block" onmouseover="this.innerHTML='drawde', this.style.color='red'" onmouseleave="this.innerHTML='CrazyHappyDayz', this.style.color='white'">
+                CrazyHappyDayz</p>
+            <video width="1024" height="500" preload controls id="vid" onclick="document.getElementById('to_change').innerHTML = 'Im the cameraman btw.';" onended="location.replace('stage2.html')">
+                <source src="coolvid.mp4" type="video/mp4" id="coolvid">
             </video>
+            <div id="to_change"></div>
         </div>
     </body>
 </html>
