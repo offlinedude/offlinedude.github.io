@@ -11,6 +11,14 @@
 
         <!-- STYLES -->
         <style>
+            .center {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                -moz-transform: translateX(-50%) translateY(-50%);
+                -webkit-transform: translateX(-50%) translateY(-50%);
+                transform: translateX(-50%) translateY(-50%);
+            }
             .topLeft {
                 position: absolute;
                 top: 10px;
@@ -19,40 +27,89 @@
 
             .botRight {
                 position:absolute;
-                bottom: 10px;
+                bottom: 30px;
                 right: 100px;
+            }
+
+            body {
+                background-color: black;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: cover;
+                font-family:Comfortaa; font-size:30px;
             }
         </style>
     </head>
 
     
-    <body style="background-color:black; font-family:Comfortaa; font-size:30px;">
+    <body id="body">
         <audio id="player"> <source src="Mice On Venus - C418.mp3" type="audio/mpeg"></audio>
         <!-- FUNCTIONS -->
         <script> 
+            let letItGlow = false;
             function changeTextColor(obj) {
-                obj.style.color = '#' + Math.floor(Math.random()*16777215).toString(16);     
+                if (letItGlow != false) {
+                    obj.style.color = '#' + Math.floor(Math.random()*16777215).toString(16);     
+                }
             }
         </script>
 
-        <div class="topLeft" id="list" style="color:white;">
-            <p onmouseover="this.innerHTML='You come from there.'" onmouseout="this.innerHTML='INSTAGRAM profile'">
-                INSTAGRAM profile</p>
+        <!-- COOL TEXT -->
+        <div class="center" id="list" style="color:white;"> 
+            <!-- MUSIC BUTTONS-->
+            <br>
+            <p style="display: inline-block;" id='pbut' onclick="document.getElementById('player').play()" onmouseover="changeTextColor(this)">-[Play]-</p>
+            <p style="display: inline-block;" onclick="document.getElementById('player').pause()" onmouseover="changeTextColor(this)">&emsp;-[Pause]-</p>
             
-            <p onmouseover="changeTextColor(this)">This site is so quirky owo.</p> 
-            <p onmouseover="changeTextColor(this)">I spent so much time on this color changing thing, good thing I will never use it again.</p>
-            
-            <p style="display: inline-block;" id='pbut' onclick="document.getElementById('player').play()" onmouseover="changeTextColor(this)">Play</p>
-            <p style="display: inline-block;" onclick="document.getElementById('player').pause()" onmouseover="changeTextColor(this)">&emsp;Pause</p>  
-            
+            <!-- THE COOL TEXT -->
+            <br>
+            <p onmouseover="changeTextColor(this)">I spent so much time on this color changing thing I will never use again.</p>
+            <p onmouseover="changeTextColor(this)">This is pretty cool tho. Search and you'll find it.</p>
+
+            <br>
             <p onmouseover="changeTextColor(this)">How did you even get here? Did you really watch the entirety of that video?.</p>
             <p onmouseover="changeTextColor(this)">For such bravery I shall grant you my wisdom, young traveler! 
-                <br>That is: "A foolish man shares his problems. A wise man shares his memes."</p>  
-            <p onmouseover="changeTextColor(this)">If you do find this, please send me a message that tells me to stop making stuff like this as it doesnt have any real use. I don't know if I can stop.</p>
+                <br>That is: "A foolish man shares his problems. A wise man shares his memes.".</p>
+            <br>
+            <p onmouseover="changeTextColor(this)">If you do find this, please send me a message in which you tell me to stop making these.</p>
         </div>
 
-        <div class="botRight">
-            <p style="color:black" onmouseover="this.style.color='white'" onmouseleave="this.style.color='black'" onclick="this.innerHTML='NEVER CLICK RANDOM LINKS!!!'; this.style.color='white'">WISDOM</p>
+        <div id="botright" class="botRight">
+            <!-- WISDOM BUTTON -->
+            <p id='wisdom' style="color:black" onmouseover="this.style.color='white'" 
+            onmouseleave="this.style.color='black'"
+            onclick="letTheShowBegin(); document.getElementById('player').play()">WISDOM</p>
+        </div>
+
+        <!-- WOOO SHINY STARS!! -->
+        <div class="center" id="stars" style="visibility:hidden">
+            <img src="star-spinning.gif" style="position:absolute; height:120px; width:120px; bottom:300px; left:250px">
+            <img src="star-spinning.gif" style="position:absolute; height:150px; width:150px; right:550px; top:220px;">
+            <img src="star-spinning.gif" style="position:absolute; height:190px; width:190px; right:690px; bottom:200px">
+            <img src="star-spinning.gif" style="position:absolute; height:170px; width:170px; left:600px; top:50px">
+            <img src="star-spinning.gif" style="position:absolute; height:110px; width:110px; top:370px; left:50px">
+        </div>
+
+        <!-- CODE FOR SHINY STARS!!! -->
+        <div id="letitshine">
+            <script>
+                function letTheShowBegin() {
+                    document.getElementById('body').style.backgroundImage='url("galaxy.jpg")';
+                    letItGlow = true;
+                    let saying = "YOU WON'T SHINE IF YOU DON'T GLOW!!!";
+                    let color = "gold";
+
+                    let wisdom_b = document.getElementById('wisdom'); wisdom_btop = wisdom_b.style.top; wisdom_bright = wisdom_b.style.right;
+                    let holder = document.createElement('p');let text = document.createTextNode(saying);
+                    holder.style.color=color; holder.style.top=wisdom_btop; holder.style.right=wisdom_bright;
+                    holder.appendChild(text);
+
+                    document.getElementById('wisdom').remove();
+
+                    document.getElementById("botright").appendChild(holder);
+                    document.getElementById("stars").style.visibility="visible";
+                }
+            </script>
         </div>
     </body>
 </html>
