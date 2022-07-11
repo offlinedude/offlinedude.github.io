@@ -63,7 +63,8 @@
             
             <!-- THE COOL TEXT -->
             <br>
-            <p onmouseover="changeTextColor(this)">I spent so much time on this color changing thing I will never use again.</p>
+            <p id='p1' onmouseover="changeTextColor(this)">I spent so much time on this color changing thing I will never use again.</p>
+            <script>console.log(document.getElementById('p1').style.top);</script>
             <p onmouseover="changeTextColor(this)">This is pretty cool tho. Search and you'll find it.</p>
 
             <br>
@@ -83,11 +84,24 @@
 
         <!-- WOOO SHINY STARS!! -->
         <div class="center" id="stars" style="visibility:hidden">
-            <img src="star-spinning.gif" style="position:absolute; height:120px; width:120px; bottom:300px; left:250px">
-            <img src="star-spinning.gif" style="position:absolute; height:150px; width:150px; right:550px; top:220px;">
-            <img src="star-spinning.gif" style="position:absolute; height:190px; width:190px; right:690px; bottom:200px">
-            <img src="star-spinning.gif" style="position:absolute; height:170px; width:170px; left:600px; top:50px">
-            <img src="star-spinning.gif" style="position:absolute; height:110px; width:110px; top:370px; left:50px">
+            <img id='st1' src="star-spinning.gif" style="position:absolute; height:120px; width:120px;">
+            <img id='st2' src="star-spinning.gif" style="position:absolute; height:150px; width:150px;">
+            <img id='st3' src="star-spinning.gif" style="position:absolute; height:190px; width:190px;">
+            <img id='st4' src="star-spinning.gif" style="position:absolute; height:170px; width:170px;">
+            <img id='st5' src="star-spinning.gif" style="position:absolute; height:110px; width:110px;">
+            <!-- Hey, cool positions I see?-->
+            <script>
+                let ids=['st1','st2','st3','st4','st5'];
+                
+                let baseT = document.getElementById('p1').style.top;
+                let baseL = document.getElementById('p1').style.left;
+
+                let coords = [['150px','-400px'],['-700px','200px'],['-800px','-400px'],['500px','0px'],['0px','350px']];
+                for (let i=0; i<ids.length; i++) {
+                    document.getElementById(ids[i]).style.top=baseT+coords[i][1];
+                    document.getElementById(ids[i]).style.left=baseL+coords[i][0];
+                }
+            </script>
         </div>
 
         <!-- CODE FOR SHINY STARS!!! -->
