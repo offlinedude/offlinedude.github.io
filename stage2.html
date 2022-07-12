@@ -41,7 +41,7 @@
 
     
     <body id="body">
-        <audio id="player"> <source src="Mice On Venus - C418.mp3" type="audio/mpeg"></audio>
+        <audio id="player"> <source src="allstar.mp3" type="audio/mpeg"></audio>
         <!-- FUNCTIONS -->
         <script> 
             let letItGlow = false;
@@ -62,13 +62,12 @@
             <!-- THE COOL TEXT -->
             <br>
             <p id='p1' onmouseover="changeTextColor(this)">I spent so much time on this color changing thing I will never use again.</p>
-            <p id='bp2' style="display:inline-block" onmouseover="changeTextColor(this)">This is pretty cool tho. Search and you'll find </p>
-            <p id='p2' style="display: inline-block; color:gold" onclick="letTheShowBegin(); document.getElementById('player').play()">it.</p>
-
+            <p id='bp2' style="display:inline" onmouseover="changeTextColor(this)">This is pretty cool tho. Search and you'll find <p id="p2" style="display:inline; color:gold" onclick="letTheShowBegin(); document.getElementById('player').play()">it.</p></p>
+            
             <br>
             <p id="p3" onmouseover="changeTextColor(this)">How did you even get here? Did you really watch the entirety of that video?.</p>
-            <p id="p4" onmouseover="changeTextColor(this)">For such bravery I shall grant you my wisdom, young traveler! 
-                <br>That is: "A foolish man shares his problems. A wise man shares his memes.".</p>
+            <p id="p4" onmouseover="changeTextColor(this)">For such bravery I shall grant you my wisdom, young traveler! </p>
+            <p id="p6" onmouseover="changeTextColor(this)">That is: "A foolish man shares his problems. A wise man shares his memes.".</p>
             <div id="p5holder">
                 <p id="p5" onmouseover="changeTextColor(this)">If you do find this, please send me a message in which you tell me to stop making these.</p>
             </div>  
@@ -84,11 +83,11 @@
                     
                     if (letItGlow != true) {
                         // TEXT
-                        let saying = "YOU WON'T SHINE IF YOU DON'T GLOW!!!";
+                        let saying = "YOU'LL NEVER SHINE IF YOU DON'T GLOW!!!";
                         let color = "gold";
                         let holder = document.createElement('p'); // create holder for text
                         let text = document.createTextNode(saying); // text that will be added
-                        holder.style.color=color; holder.style.fontFamily='Oswald'; holder.id='p6'; // style
+                        holder.style.color=color; holder.style.fontFamily='Oswald'; holder.id='p7'; // style
                         holder.appendChild(text);
                         document.getElementById('p5holder').appendChild(holder);
                     
@@ -97,13 +96,13 @@
                         let star = document.createElement('img'); star.src="star-spinning.gif"; star.style.height=starSize; star.style.width=starSize; star.style.marginLeft='1em';
                         let str_star = "<img src='star-spinning.gif' style='width:30px; height:30px; margin-right:1em'>";
                         
-                        ids = ['p1','p2','p3','p4','p5','p6'];
+                        ids = ['p1','p2','p3','p4','p5','p6', 'p7'];
                         for (let i=0; i<ids.length; i++) {
                             document.getElementById(ids[i]).appendChild(star.cloneNode());
                             if (ids[i] != 'p2') {
                                 document.getElementById(ids[i]).insertAdjacentHTML("afterbegin", str_star);
                             } else {
-                                document.getElementById('bp2').insertAdjacentHTML('afterbegin', str_star);
+                                document.getElementById('bp2').insertAdjacentHTML("afterbegin", str_star);
                             }
                         }
                     }
