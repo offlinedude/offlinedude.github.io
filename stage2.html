@@ -28,7 +28,7 @@
             .botRight {
                 position:absolute;
                 bottom: 30px;
-                right: 100px;
+                right: 400px;
             }
 
             body {
@@ -64,7 +64,6 @@
             <!-- THE COOL TEXT -->
             <br>
             <p id='p1' onmouseover="changeTextColor(this)">I spent so much time on this color changing thing I will never use again.</p>
-            <script>console.log(document.getElementById('p1').style.top);</script>
             <p onmouseover="changeTextColor(this)">This is pretty cool tho. Search and you'll find it.</p>
 
             <br>
@@ -72,12 +71,14 @@
             <p onmouseover="changeTextColor(this)">For such bravery I shall grant you my wisdom, young traveler! 
                 <br>That is: "A foolish man shares his problems. A wise man shares his memes.".</p>
             <br>
-            <p onmouseover="changeTextColor(this)">If you do find this, please send me a message in which you tell me to stop making these.</p>
+            <div id="p2holder">
+                <p id='p2' onmouseover="changeTextColor(this)">If you do find this, please send me a message in which you tell me to stop making these.</p>
+            </div>  
         </div>
 
         <div id="botright" class="botRight">
             <!-- WISDOM BUTTON -->
-            <p id='wisdom' style="color:black" onmouseover="this.style.color='white'" 
+            <p style="color:black" onmouseover="this.style.color='white'" 
             onmouseleave="this.style.color='black'"
             onclick="letTheShowBegin(); document.getElementById('player').play()">WISDOM</p>
         </div>
@@ -93,13 +94,14 @@
             <script>
                 let ids=['st1','st2','st3','st4','st5'];
                 
-                let baseT = document.getElementById('p1').style.top;
-                let baseL = document.getElementById('p1').style.left;
+                let base = document.getElementById('p1').getBoundingClientRect();
+                let baseT = base.top;
+                let baseL = base.left;
 
-                let coords = [['150px','-400px'],['-700px','200px'],['-800px','-400px'],['500px','0px'],['0px','350px']];
+                let coords = [[700,690],[-200,550],[-300,0],[1000,200],[600,-50]];
                 for (let i=0; i<ids.length; i++) {
-                    document.getElementById(ids[i]).style.top=baseT+coords[i][1];
-                    document.getElementById(ids[i]).style.left=baseL+coords[i][0];
+                    document.getElementById(ids[i]).style.top=String((-1*baseT)+coords[i][1])+'px';
+                    document.getElementById(ids[i]).style.left=String((-1*baseL)+coords[i][0])+'px';
                 }
             </script>
         </div>
@@ -113,14 +115,14 @@
                     let saying = "YOU WON'T SHINE IF YOU DON'T GLOW!!!";
                     let color = "gold";
 
-                    let wisdom_b = document.getElementById('wisdom'); wisdom_btop = wisdom_b.style.top; wisdom_bright = wisdom_b.style.right;
-                    let holder = document.createElement('p');let text = document.createTextNode(saying);
-                    holder.style.color=color; holder.style.top=wisdom_btop; holder.style.right=wisdom_bright;
+                    let holder = document.createElement('p'); // create holder for text
+                    let text = document.createTextNode(saying); // text that will be added
+                    holder.style.color=color; // style
+                   
                     holder.appendChild(text);
 
-                    document.getElementById('wisdom').remove();
-
-                    document.getElementById("botright").appendChild(holder);
+                    document.getElementById('botright').remove();
+                    document.getElementById('p2holder').appendChild(holder);
                     document.getElementById("stars").style.visibility="visible";
                 }
             </script>
