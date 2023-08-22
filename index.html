@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>HOME</title>
+        <link href="style.css" ref="stylesheet">
+    </head>
+    <body class="main">
+        <div id='to_change' style="text-align: center; ">
+            <p style="display:inline-block">Video presentation of myself,&nbsp;</p>
+            <p style="display:inline-block" onmouseover="this.innerHTML='DR-ID', this.style.color='red'" onmouseleave="this.innerHTML='Odd', this.style.color='white'">
+            Odd</p>
+            <br>
+            <video width="1000" height="500" preload controls onload="document.getElementById('to_change').insertAdjacentHTML('beforeend', `I'm the camera-man btw.`)" onended="location.replace('stage2.html')">
+                <source src="resources/mp4/coolvid.mp4" type="video/mp4" id="coolvid">
+            </video>
+        </div>
+    </body>
+</html>

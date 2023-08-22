@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>wisdom</title>
+	<link href="style.css" rel="stylesheet">
+</head>
+
+<body id="body">
+	<audio id="player"> <source src="resources/mp3/allstar.mp3" type="audio/mpeg"></audio>
+	<div hidden class='top-center' id="media_buttons">
+		<p style="display: inline-block;" onclick="document.getElementById('player').play()">[Play]</p>
+		<p style="display: inline-block;" onclick="document.getElementById('player').pause()">[Pause]</p>
+	</div> 
+	<br>
+	<div id="a1" class="top-center">
+		<p> I spent so much time on that color changing thing, only to redo
+		<span id="it-b" onclick="letTheShowBegin(); document.getElementById('player').play()">it</span>.</p>
+		<p> I shall grant you my wisdom! </p>
+		<p> That is: "A foolish man shares his problems, but a wise man shares his memes!" </p>
+	</div>
+	
+	<script>
+		let run = false;
+		<!-- CODE FOR SHINY STARS!!! -->
+		function letTheShowBegin() {
+				document.getElementById('media_buttons').hidden = false;
+				document.getElementById('body').style.backgroundImage='url("resources/images/galaxy.jpg")';
+				let a = document.getElementById("a1");	
+				
+				if (run != true) {
+					// TEXT
+					let _p = document.createElement('p');
+					let _text = document.createTextNode("YOU'LL NEVER SHINE IF YOU DON'T GLOW!");
+					let _style = _p.style;
+					_style.color = "gold"; _style.fontFamily='Oswald'; 
+					_p.appendChild(_text);
+					a.appendChild(_p);
+				
+					// STARS
+					let dist = 0.25;
+					let str_star = `<img src='resources/gifs/star-spinning.gif' style='width:30px; height:30px; margin-right:${dist}em; margin-left:${dist}em'>`;
+					
+					for(let c in a.children) {
+						try {
+							a.children[c].insertAdjacentHTML('afterbegin', str_star); 	
+							a.children[c].insertAdjacentHTML('beforeend', str_star);
+						} catch(err) { console.log(`DON'T WORRY ABT IT: ${err}`); }
+					}
+				}
+				run = true;
+			}
+	</script>
+</body>
+</html>
