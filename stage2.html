@@ -2,56 +2,20 @@
 
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>S2</title>
-
-    <!-- STYLES -->
-    <style>
-        @font-face { font-family: Comfortaa; src: url("Comfortaa-VariableFont_wght.ttf"); }
-        @font-face { font-family: Oswald; src: url("Oswald-VariableFont_wght.ttf"); }
-
-        .center {
-            position: absolute;
-            top: 50%;
-			left: 50%;
-            -moz-transform: translateX(-50%) translateY(-50%);
-			-webkit-transform: translateX(-50%) translateY(-50%);
-			transform: translateX(-50%) translateY(-50%);
-        }
-		.top-center {
-			text-align:center;
-			vertical-align:middle;
-		}
-		.topLeft {
-			position: absolute;
-			top: 10px;
-			left: 100px;
-	`	}
-		.botRight {
-			position:absolute;
-			bottom: 30px;
-			right: 400px;
-		}
-		
-		body {
-			background-color: black;
-			background-repeat: no-repeat;
-			background-attachment: fixed;
-			background-size: cover;
-			font-family:Comfortaa; font-size:30px;
-		}
-	</style>
+    <title>wisdom</title>
+	<link href="style.css" rel="stylesheet">
 </head>
-<body id="body">
-	<audio id="player"> <source src="allstar.mp3" type="audio/mpeg"></audio>
-	<div hidden class='top-center' id="media_buttons" style="color:white;">
+
+<body>
+	<audio id="player"> <source src="resources/mp3/allstar.mp3" type="audio/mpeg"></audio>
+	<div hidden class='top-center' id="media_buttons">
 		<p style="display: inline-block;" onclick="document.getElementById('player').play()">[Play]</p>
 		<p style="display: inline-block;" onclick="document.getElementById('player').pause()">[Pause]</p>
 	</div> 
 	<br>
-	<div id="a1" class="top-center" style="color:white;">
+	<div id="a1" class="top-center">
 		<p> I spent so much time on that color changing thing, only to redo
-		<span style="display:inline; color:gold" onclick="letTheShowBegin(); document.getElementById('player').play()">it</span>.</p>
+		<span id="it-b" onclick="letTheShowBegin(); document.getElementById('player').play()">it</span>.</p>
 		<p> I shall grant you my wisdom! </p>
 		<p> That is: "A foolish man shares his problems, but a wise man shares his memes!" </p>
 	</div>
@@ -61,7 +25,7 @@
 		<!-- CODE FOR SHINY STARS!!! -->
 		function letTheShowBegin() {
 				document.getElementById('media_buttons').hidden = false;
-				document.getElementById('body').style.backgroundImage='url("galaxy.jpg")';
+				document.getElementById('body').style.backgroundImage='url("resources/images/galaxy.jpg")';
 				let a = document.getElementById("a1");	
 				
 				if (run != true) {
@@ -75,7 +39,7 @@
 				
 					// STARS
 					let dist = 0.25;
-					let str_star = `<img src='star-spinning.gif' style='width:30px; height:30px; margin-right:${dist}em; margin-left:${dist}em'>`;
+					let str_star = `<img src='resources/gifs/star-spinning.gif' style='width:30px; height:30px; margin-right:${dist}em; margin-left:${dist}em'>`;
 					
 					for(let c in a.children) {
 						try {
