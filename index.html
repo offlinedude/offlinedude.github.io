@@ -16,13 +16,21 @@
             -webkit-transform: translateX(-50%) translateY(-50%);
             transform: translateX(-50%) translateY(-50%);
         }
-        
+        .top-right {
+			position: absolute;
+			top:50%;
+			left:50%;
+            transform: translateX(0%) translateY(-80%);
+		}
+		body {
+			background-color:gray;
+		}
     </style>
 
-    <body style="background-color:black;">
-        <div class="center" style="text-align: center; font-size: 200%; color:white;" id="S1">
-            <p style="display:inline-block">Video presentation of myself,&nbsp;</p><p style="display:inline-block" onmouseover="this.innerHTML='drawde', this.style.color='red'" onmouseleave="this.innerHTML='CrazyHappyDayz', this.style.color='white'">
-                CrazyHappyDayz</p>
+    <body style="">
+        <div class="top-right" style="text-align: center; font-size: 200%; color:white;" id="S1">
+            <p style="display:inline-block">Video presentation of myself,&nbsp;</p><p style="display:inline-block" onmouseover="this.innerHTML='DR-ID', this.style.color='red'" onmouseleave="this.innerHTML='Odd', this.style.color='white'">
+                Odd</p>
             <video width="1024" height="500" preload controls id="vid" onclick="document.getElementById('to_change').innerHTML = 'Im the cameraman btw.';" onended="location.replace('stage2.html')">
                 <source src="coolvid.mp4" type="video/mp4" id="coolvid">
             </video>

@@ -1,114 +1,91 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <title>S2</title>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>S2</title>
 
-        <!-- STYLES -->
-        <style>
-            @font-face { font-family: Comfortaa; src: url("Comfortaa-VariableFont_wght.ttf"); }
-            @font-face { font-family: Oswald; src: url("Oswald-VariableFont_wght.ttf"); }
+    <!-- STYLES -->
+    <style>
+        @font-face { font-family: Comfortaa; src: url("Comfortaa-VariableFont_wght.ttf"); }
+        @font-face { font-family: Oswald; src: url("Oswald-VariableFont_wght.ttf"); }
 
-            .center {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                -moz-transform: translateX(-50%) translateY(-50%);
-                -webkit-transform: translateX(-50%) translateY(-50%);
-                transform: translateX(-50%) translateY(-50%);
-            }
-            .topLeft {
-                position: absolute;
-                top: 10px;
-                left: 100px;
-            }
-
-            .botRight {
-                position:absolute;
-                bottom: 30px;
-                right: 400px;
-            }
-
-            body {
-                background-color: black;
-                background-repeat: no-repeat;
-                background-attachment: fixed;
-                background-size: cover;
-                font-family:Comfortaa; font-size:30px;
-            }
-        </style>
-    </head>
-
-    
-    <body id="body">
-        <audio id="player"> <source src="allstar.mp3" type="audio/mpeg"></audio>
-        <!-- FUNCTIONS -->
-        <script> 
-            let letItGlow = false;
-            function changeTextColor(obj) {
-                if (letItGlow != false) {
-                    obj.style.color = '#' + Math.floor(Math.random()*16777215).toString(16);     
-                }
-            }
-        </script>
-
-        <!-- COOL TEXT -->
-        <div class="center" id="list" style="color:white;"> 
-            <!-- MUSIC BUTTONS-->
-            <br>
-            <p style="display: inline-block;" id='pbut' onclick="document.getElementById('player').play()" onmouseover="changeTextColor(this)">-[Play]-</p>
-            <p style="display: inline-block;" onclick="document.getElementById('player').pause()" onmouseover="changeTextColor(this)">&emsp;-[Pause]-</p>
-            
-            <!-- THE COOL TEXT -->
-            <br>
-            <p id='p1' onmouseover="changeTextColor(this)">I spent so much time on this color changing thing I will never use again.</p>
-            <p id='bp2' style="display:inline" onmouseover="changeTextColor(this)">This is pretty cool tho. Search and you'll find <p id="p2" style="display:inline; color:gold" onclick="letTheShowBegin(); document.getElementById('player').play()">it.</p></p>
-            
-            <br>
-            <p id="p3" onmouseover="changeTextColor(this)">How did you even get here? Did you really watch the entirety of that video?.</p>
-            <p id="p4" onmouseover="changeTextColor(this)">For such bravery I shall grant you my wisdom, young traveler! </p>
-            <p id="p6" onmouseover="changeTextColor(this)">That is: "A foolish man shares his problems. A wise man shares his memes.".</p>
-            <div id="p5holder">
-                <p id="p5" onmouseover="changeTextColor(this)">If you do find this, please send me a message in which you tell me to stop making these.</p>
-            </div>  
-        </div>
-
-
-        <!-- CODE FOR SHINY STARS!!! -->
-        <div id="letitshine">
-            <script>
-                function letTheShowBegin() {
-                    document.getElementById('body').style.backgroundImage='url("galaxy.jpg")';
-                    
-                    
-                    if (letItGlow != true) {
-                        // TEXT
-                        let saying = "YOU'LL NEVER SHINE IF YOU DON'T GLOW!!!";
-                        let color = "gold";
-                        let holder = document.createElement('p'); // create holder for text
-                        let text = document.createTextNode(saying); // text that will be added
-                        holder.style.color=color; holder.style.fontFamily='Oswald'; holder.id='p7'; // style
-                        holder.appendChild(text);
-                        document.getElementById('p5holder').appendChild(holder);
-                    
-                        // STARS
-                        let starSize = '30px';
-                        let star = document.createElement('img'); star.src="star-spinning.gif"; star.style.height=starSize; star.style.width=starSize; star.style.marginLeft='1em';
-                        let str_star = "<img src='star-spinning.gif' style='width:30px; height:30px; margin-right:1em'>";
-                        
-                        ids = ['p1','p2','p3','p4','p5','p6', 'p7'];
-                        for (let i=0; i<ids.length; i++) {
-                            document.getElementById(ids[i]).appendChild(star.cloneNode());
-                            if (ids[i] != 'p2') {
-                                document.getElementById(ids[i]).insertAdjacentHTML("afterbegin", str_star);
-                            } else {
-                                document.getElementById('bp2').insertAdjacentHTML("afterbegin", str_star);
-                            }
-                        }
-                    }
-                    letItGlow = true;
-                }
-            </script>
-        </div>
-    </body>
+        .center {
+            position: absolute;
+            top: 50%;
+			left: 50%;
+            -moz-transform: translateX(-50%) translateY(-50%);
+			-webkit-transform: translateX(-50%) translateY(-50%);
+			transform: translateX(-50%) translateY(-50%);
+        }
+		.top-center {
+			text-align:center;
+			vertical-align:middle;
+		}
+		.topLeft {
+			position: absolute;
+			top: 10px;
+			left: 100px;
+	`	}
+		.botRight {
+			position:absolute;
+			bottom: 30px;
+			right: 400px;
+		}
+		
+		body {
+			background-color: black;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: cover;
+			font-family:Comfortaa; font-size:30px;
+		}
+	</style>
+</head>
+<body id="body">
+	<audio id="player"> <source src="allstar.mp3" type="audio/mpeg"></audio>
+	<div hidden class='top-center' id="media_buttons" style="color:white;">
+		<p style="display: inline-block;" onclick="document.getElementById('player').play()">[Play]</p>
+		<p style="display: inline-block;" onclick="document.getElementById('player').pause()">[Pause]</p>
+	</div> 
+	<br>
+	<div id="a1" class="top-center" style="color:white;">
+		<p> I spent so much time on that color changing thing, only to redo
+		<span style="display:inline; color:gold" onclick="letTheShowBegin(); document.getElementById('player').play()">it</span>.</p>
+		<p> I shall grant you my wisdom! </p>
+		<p> That is: "A foolish man shares his problems, but a wise man shares his memes!" </p>
+	</div>
+	
+	<script>
+		let run = false;
+		<!-- CODE FOR SHINY STARS!!! -->
+		function letTheShowBegin() {
+				document.getElementById('media_buttons').hidden = false;
+				document.getElementById('body').style.backgroundImage='url("galaxy.jpg")';
+				let a = document.getElementById("a1");	
+				
+				if (run != true) {
+					// TEXT
+					let _p = document.createElement('p');
+					let _text = document.createTextNode("YOU'LL NEVER SHINE IF YOU DON'T GLOW!");
+					let _style = _p.style;
+					_style.color = "gold"; _style.fontFamily='Oswald'; 
+					_p.appendChild(_text);
+					a.appendChild(_p);
+				
+					// STARS
+					let dist = 0.25;
+					let str_star = `<img src='star-spinning.gif' style='width:30px; height:30px; margin-right:${dist}em; margin-left:${dist}em'>`;
+					
+					for(let c in a.children) {
+						try {
+							a.children[c].insertAdjacentHTML('afterbegin', str_star); 	
+							a.children[c].insertAdjacentHTML('beforeend', str_star);
+						} catch(err) { console.log(`DON'T WORRY ABT IT: ${err}`); }
+					}
+				}
+				run = true;
+			}
+	</script>
+</body>
 </html>
